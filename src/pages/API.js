@@ -1,5 +1,22 @@
+import { useState, useEffect } from "react";
+
 const API = () => {
-	return <h1>api consumption</h1>;
+	const [dogimageURL, setDogURL] = useState("");
+
+	useEffect(() => {
+		 fetch("https://dog.ceo/api/breeds/image/random")
+			.then((res) => res.json())
+			.then((json) => {
+				setDogURL(json.message);
+			});
+	}, []);
+
+	return (
+		<>
+			<h1>Here is a random dog from the dog api:</h1>
+			<img src={dogimageURL} alt="A random dog" width={500}></img>
+		</>
+	);
 };
 
 export default API;
