@@ -4,7 +4,7 @@ const API = () => {
 	const [dogimageURL, setDogURL] = useState("");
 
 	useEffect(() => {
-		 fetch("https://dog.ceo/api/breeds/image/random")
+		fetch("https://dog.ceo/api/breeds/image/random")
 			.then((res) => res.json())
 			.then((json) => {
 				setDogURL(json.message);
@@ -15,6 +15,7 @@ const API = () => {
 		<>
 			<h1>Here is a random dog from the dog api:</h1>
 			<img src={dogimageURL} alt="A random dog" width={500}></img>
+			<br />
 			<small>if there is no image, please refresh</small>
 		</>
 	);
